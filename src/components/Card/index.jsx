@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './style.css';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { NotFound } from '../NotFound';
 
 export const Card = () => {
     const [event, setEvent] = useState(null);
@@ -27,6 +28,9 @@ export const Card = () => {
                             <span className="loader"></span>
                         </div>
                     </div>
+                    :
+                    event.length == 0 ?
+                    <NotFound title={"Evento no encontrado"} />
                     :
                     <section className='card-details'>
                         <div className="imagen">

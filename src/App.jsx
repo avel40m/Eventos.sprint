@@ -18,7 +18,7 @@ function App() {
         <Route path='/detail/:id' element={<Details data="Detalles" />} />
         <Route path='/contact' element={<Contacts data="Contactos"/>} />
         <Route path='/stast' element={<Stasts data="Estadisticas"/>} />
-        <Route path='*' element={<NotFound/>} />
+        <Route path='*' element={<NotFound title={"Pagina no encontrada"}/>} />
       </Routes>
     </BrowserRouter>
   )
