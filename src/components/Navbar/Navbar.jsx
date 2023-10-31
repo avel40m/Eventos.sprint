@@ -4,13 +4,12 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Navbar = () => {
     const [value, setValue] = useState(false)
-    console.log(value);
     return (
         <nav>
             <Link to={"/"} className="logo">LOGO</Link>
-            <button id="abrir" className="abrir-menu" onClick={() => setValue(true)}><i className="fa-solid fa-bars"></i></button>
+            <button title='abrir' className="abrir-menu" onClick={() => setValue(true)}><i className="fa-solid fa-bars"></i></button>
             <div className={`nav ${value ? 'visible' : ''}`} id="nav">
-                <button id="cerrar" className="cerrar-menu" onClick={() => setValue(false)}><i className="fa-solid fa-xmark icon-abrir"></i></button>
+                <button title='cerrar' className="cerrar-menu" onClick={() => setValue(false)}><i className="fa-solid fa-xmark icon-abrir"></i></button>
                 <ul className="nav-list">
                     <li><NavLink to="/">INICIO</NavLink></li>
                     <li><NavLink to='/upcoming'>PROXIMOS EVENTOS</NavLink></li>

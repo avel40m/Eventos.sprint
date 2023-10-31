@@ -11,7 +11,7 @@ export const Table = ({ dataTable, stast, dataPast,dataPost }) => {
                 </tr>
                 <tr>
                     {
-                        dataTable.filas.map((valor, index) => (
+                        dataTable.filas?.map((valor, index) => (
                             <th key={index}>{valor}</th>
                         ))
                     }

@@ -16,7 +16,7 @@ export const Contact = () => {
                 <textarea name="mensaje" className='form-input' id="mensaje" placeholder="Mensaje" cols="20" rows="10"></textarea>
             </div>
             <div className="form-group">
-                <input type="submit" value="Enviar" className="boton-contacts" />
+                <input type="submit" role="Enviar" value="Enviar" className="boton-contacts" />
             </div>
         </section>
     )

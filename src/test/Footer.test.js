@@ -7,4 +7,16 @@ describe('Funcionamiento del componente Footer',() => {
         render(<Footer/>);
          expect(screen.getByText('Cohort')).toBeInTheDocument();
      })
+     test('Existe la clase que llama al icono de whatsapp', () => { 
+        const { container } = render(<Footer />);
+        expect(container.querySelector('.fa-whatsapp')).toBeInTheDocument();
+      })
+     test('Existe la clase que llama al icono de instagram', () => { 
+        const { container } = render(<Footer />);
+        expect(container.querySelector('.fa-instagram')).toBeInTheDocument();
+      })
+     test('Existe la clase que llama al icono de facebook', () => { 
+        const { container } = render(<Footer />);
+        expect(container.querySelector('.fa-facebook')).toBeInTheDocument();
+      })
 })
