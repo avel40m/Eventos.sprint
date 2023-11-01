@@ -14,7 +14,7 @@ export const Home = ({ data }) => {
 
   useEffect(() => {
     setLoading(true)
-    axios.get('https://mindhub-xj03.onrender.com/api/amazing').then(response => {
+    axios.get('src/data/data.json').then(response => {
       let evento = response.data.events
       setFiltrar([]);
       if (pathname == "/upcoming") {

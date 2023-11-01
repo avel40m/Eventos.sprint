@@ -11,11 +11,13 @@ export const Card = () => {
 
 
     useEffect(() => {
-        axios.get('https://mindhub-xj03.onrender.com/api/amazing')
-            .then(resp => setEvent(resp.data.events.filter(event => event._id == id)))
-        setTimeout(() => {
-            setLoading(false)
-        }, 1000);
+        axios.get('/src/data/data.json')
+            .then(resp => {
+                setTimeout(() => {
+                    setEvent(resp.data.events.filter(event => event._id == id))
+                    setLoading(false)
+                }, 1000);
+            })
     }, [])
     return (
         <>
@@ -29,7 +31,7 @@ export const Card = () => {
                         </div>
                     </div>
                     :
-                    event.length == 0 ?
+                    event == null ?
                     <NotFound title={"Evento no encontrado"} />
                     :
                     <section className='card-details'>
@@ -55,5 +57,6 @@ export const Card = () => {
                     </section>
             }
         </>
+    
     )
 }
