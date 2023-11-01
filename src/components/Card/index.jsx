@@ -31,7 +31,7 @@ export const Card = () => {
                         </div>
                     </div>
                     :
-                    event == null ?
+                    event?.length == 0 ?
                     <NotFound title={"Evento no encontrado"} />
                     :
                     <section className='card-details'>
