@@ -1,24 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react';
 import './style.css';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
+
 import { NotFound } from '../NotFound';
 
-export const Card = () => {
-    const [event, setEvent] = useState(null);
-    const { id } = useParams();
-    const [loading, setLoading] = useState(true)
-
-
-    useEffect(() => {
-        axios.get('/src/data/data.json')
-            .then(resp => {
-                setTimeout(() => {
-                    setEvent(resp.data.events.filter(event => event._id == id))
-                    setLoading(false)
-                }, 1000);
-            })
-    }, [])
+export const Card = ({loading,event}) => {
+    console.log(event);
     return (
         <>
 

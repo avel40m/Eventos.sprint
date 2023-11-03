@@ -46,15 +46,15 @@ export const Form = ({ categorias, events, setFiltrar }) => {
                 {
                     categorias?.map((categoria, index) => (
                         <div className="check-grupo" key={index}>
-                            <input type="checkbox" value={categoria} className="check-box" onChange={handleChange} id={categoria} />
+                            <input type="checkbox" role="searchCheckbox" value={categoria} className="check-box" onChange={handleChange} id={categoria} />
                             <label htmlFor={categoria} id={categoria}>{categoria}</label>
                         </div>
                     ))
                 }
             </div>
             <div className="search">
-                <input type="search" onChange={e => setTexto(e.target.value)} className="input" id="searchName" placeholder="Buscar por nombre" />
-                <input type="submit" value="Buscar" className="button" />
+                <input type="search" role="searchName" onChange={e => setTexto(e.target.value)} className="input" id="searchName" placeholder="Buscar por nombre" />
+                <input type="submit" role="buscar" value="Buscar" className="button" />
             </div>
         </form>
     )

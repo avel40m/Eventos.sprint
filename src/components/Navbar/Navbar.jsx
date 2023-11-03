@@ -8,7 +8,7 @@ export const Navbar = () => {
         <nav>
             <Link to={"/"} className="logo">LOGO</Link>
             <button title='abrir' className="abrir-menu" onClick={() => setValue(true)}><i className="fa-solid fa-bars"></i></button>
-            <div className={`nav ${value ? 'visible' : ''}`} id="nav">
+            <div role='menuNavegacion' className={`nav ${value ? 'visible' : ''}`} id="nav">
                 <button title='cerrar' className="cerrar-menu" onClick={() => setValue(false)}><i className="fa-solid fa-xmark icon-abrir"></i></button>
                 <ul className="nav-list">
                     <li><NavLink to="/">INICIO</NavLink></li>

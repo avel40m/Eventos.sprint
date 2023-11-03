@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react"
+import { fireEvent, render, screen } from "@testing-library/react"
 import { Navbar } from "../components/Navbar/Navbar"
 import '@testing-library/jest-dom'
 import { MemoryRouter } from "react-router-dom"
@@ -31,4 +31,21 @@ describe('Funcionamiento del componente Navbar', () => {
          render(<MemoryRouter><Navbar/></MemoryRouter>)
          expect(screen.getByTitle('cerrar')).toBeInTheDocument();
        })
+      test('Abrir el menu cuando es pagina responsiva', () => { 
+         render(<MemoryRouter><Navbar/></MemoryRouter>)
+         const abrirMenu = screen.getByTitle('abrir');
+         const navbar = screen.getByRole('menuNavegacion');
+
+         fireEvent.click(abrirMenu);
+         expect(navbar).toHaveClass('visible');
+       })
+      test('Cerrar el menu cuando es pagina responsiva', () => { 
+         render(<MemoryRouter><Navbar/></MemoryRouter>)
+         const cerrarMenu = screen.getByTitle('cerrar');
+         const navbar = screen.getByRole('menuNavegacion');
+
+         fireEvent.click(cerrarMenu);
+         expect(navbar).not.toHaveClass('visible')
+       })
+
  })
