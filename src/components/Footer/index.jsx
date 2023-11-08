@@ -10,7 +10,7 @@ export const Footer = () => {
                 <a href="#"><i className="fa-brands fa-facebook azul"></i></a>
             </div>
             <div className="autor">
-                <p>Cohort</p>
+                <p>Mendez Avelino</p>
             </div>
         </div>
     </footer>  )

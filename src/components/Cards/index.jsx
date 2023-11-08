@@ -1,14 +1,11 @@
 import { Link } from 'react-router-dom';
 import './style.css';
 
-export const Cards = ({ filtrar }) => {
-
+export const Cards = ({filtrar}) => {
     return (
         <section className="cards">
             {
-                filtrar
-                    ?
-                    filtrar.map(event => (
+                    filtrar?.map(event => (
                         <div className="card" key={event._id}>
                             <img src={event.image} className="card-imagen" alt="Avatar" />
                             <div className="card-body">
@@ -18,8 +15,6 @@ export const Cards = ({ filtrar }) => {
                             </div>
                         </div>
                     ))
-                    :
-                    <h1>Cargando datos...</h1>
             }
         </section >
     )

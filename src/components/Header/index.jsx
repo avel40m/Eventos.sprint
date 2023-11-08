@@ -3,7 +3,7 @@ import './style.css';
 export const Header = ({data}) => {
     return (
         <header className="principal">
-            <h1>{data}</h1>
+            <h3>{data}</h3>
         </header>
     )
 }

@@ -1,32 +1,23 @@
 import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { dataTable, estadiaticasEventos, estadisticasEventosFuturos, estadisticasEventosPasados } from '../../utils/dataTables';
 import { Table } from '../Table';
 import './style.css';
-import axios from 'axios';
-import { dataTable, estadiaticasEventos, estadisticasEventosFuturos, estadisticasEventosPasados } from '../../utils/dataTables';
 
 export const Stast = () => {
-    const [events, setEvents] = useState([]);
+    const eventos = useSelector((state) => state.eventos) 
     const [stast, setStast] = useState([])
     const [dataPast, setdataPast] = useState([]);
     const [dataPost, setdataPost] = useState([]);
     const [loading, setLoading] = useState(true)
-
     useEffect(() => {
-        axios.get('src/data/data.json')
-            .then(response => {
-                setEvents(response.data.events)
-            });
-    }, [])
-
-    useEffect(() => {
-        if (events.length == 0) return
-        setStast(estadiaticasEventos(events));
-        setdataPast(estadisticasEventosPasados(events));
-        setdataPost(estadisticasEventosFuturos(events));
+        setStast(estadiaticasEventos(eventos));
+        setdataPast(estadisticasEventosPasados(eventos));
+        setdataPost(estadisticasEventosFuturos(eventos));
         setTimeout(() => {
             setLoading(false);
         }, 1000);
-    }, [events])
+    }, [])
 
     return (
         <section className="tabla">

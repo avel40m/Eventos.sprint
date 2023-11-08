@@ -1,33 +1,37 @@
 import { useEffect, useState } from "react";
 import "./style.css";
 import { useLocation } from "react-router-dom";
+import toast from "react-hot-toast";
 
-export const Form = ({ categorias, events, setFiltrar }) => {
+export const Form = ({ categorias,filtro , setFiltrar }) => {
     const [texto, setTexto] = useState('');
     const [select, setSelect] = useState([]);
     const { pathname } = useLocation();
     
     useEffect(() => {
-        setFiltrar(events);
+        setFiltrar(filtro);
         setSelect([]);
     },[pathname])
 
     const onSearch = (e) => {
         e.preventDefault();
-
+        let filtrado = [];
         if (select.length != 0) {
             let filtradoCategoria = [];
             for (let i = 0; i < select.length; i++) {
-                filtradoCategoria.push(events.filter(({category}) => category == select[i]));
+                filtradoCategoria.push(filtro.filter(({category}) => category == select[i]));
             }
             let unSoloArreglo = filtradoCategoria.reduce((acumulador,categoria) => acumulador.concat(categoria),[]);
-            let filtrado = unSoloArreglo.filter(eventos => eventos.name.toLowerCase().includes(texto.toLowerCase()));
-            if (filtrado.length == 0) alert('No se encontro el evento')
-            setFiltrar(filtrado)
+            filtrado = unSoloArreglo.filter(eventos => eventos.name.toLowerCase().includes(texto.toLowerCase()));
         } else{
-            let filtrado = events.filter(eventos => eventos.name.toLowerCase().includes(texto.toLowerCase()));
-            if (filtrado.length == 0) alert('No se encontro el evento')
+            filtrado = filtro.filter(eventos => eventos.name.toLowerCase().includes(texto.toLowerCase()));
+        }
+        if (filtrado.length == 0) {
+            setFiltrar(filtro)
+            toast.error('No se encontraron evento')
+        } else {
             setFiltrar(filtrado)
+            toast.success(`Se encontro ${filtrado.length} eventos`)
         }
     }
     
