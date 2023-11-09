@@ -25,8 +25,8 @@ export const Card = ({loading,event}) => {
                         </div>
                         <div className="card-body">
                             <div>
-                                <h4>{event[0].name}</h4>
-                                <h6>Categoria: {event[0].category}</h6>
+                                <h2>{event[0].name}</h2>
+                                <h4>Categoria: {event[0].category}</h4>
                             </div>
                             <p>{event[0].description}</p>
                             <div className='card-footer'>

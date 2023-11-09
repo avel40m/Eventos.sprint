@@ -36,4 +36,8 @@ footer .contenedor{
         align-items: center;
         margin: auto;
     }
+    .autor p{
+        font-size: 2rem;
+        text-align: center;
+    }
 }
