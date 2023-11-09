@@ -18,7 +18,6 @@ export const Home = ({ data }) => {
   useEffect(() => {
     setLoading(true)
     dispatch(eventosActions.get_eventos())
-
       if (pathname == "/upcoming") {
         dispatch(filtroActions.filtro_Futuros())
       } else if (pathname == "/past") {

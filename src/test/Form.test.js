@@ -49,7 +49,7 @@ describe('Funcionamiento del componente Form', () => {
     test('Filtrar por el nombre del evento', () => {
         render(
             <MemoryRouter>
-                <Form categorias={mockCategoria} events={mockEvents} setFiltrar={setFiltrar} />
+                <Form categorias={mockCategoria} filtro={mockEvents} setFiltrar={setFiltrar} />
             </MemoryRouter>
         )
         const searchName = screen.getByRole('searchName');
@@ -67,7 +67,7 @@ describe('Funcionamiento del componente Form', () => {
     test('Filtrar por Categoria del evento Food', () => {
         render(
             <MemoryRouter>
-                <Form categorias={mockCategoria} events={mockEvents} setFiltrar={setFiltrar} />
+                <Form categorias={mockCategoria} filtro={mockEvents} setFiltrar={setFiltrar} />
             </MemoryRouter>
         )
         const checkFood = screen.getByRole('searchCheckbox', { name: "Food" });
@@ -83,7 +83,7 @@ describe('Funcionamiento del componente Form', () => {
     test('Filtrar por Categoria del evento Museum', async () => {
         render(
             <MemoryRouter>
-                <Form categorias={mockCategoria} events={mockEvents} setFiltrar={setFiltrar} />
+                <Form categorias={mockCategoria} filtro={mockEvents} setFiltrar={setFiltrar} />
             </MemoryRouter>
         )
         const checkMuseum = screen.getByRole('searchCheckbox', { name: 'Museum' });
@@ -99,7 +99,7 @@ describe('Funcionamiento del componente Form', () => {
     test('Filtrar por Categoria del evento Cinema', () => {
         render(
             <MemoryRouter>
-                <Form categorias={mockCategoria} events={mockEvents} setFiltrar={setFiltrar} />
+                <Form categorias={mockCategoria} filtro={mockEvents} setFiltrar={setFiltrar} />
             </MemoryRouter>
         )
         const checkCinema = screen.getByRole('searchCheckbox', { name: 'Cinema' });

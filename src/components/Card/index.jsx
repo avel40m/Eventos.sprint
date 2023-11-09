@@ -4,7 +4,6 @@ import './style.css';
 import { NotFound } from '../NotFound';
 
 export const Card = ({loading,event}) => {
-    console.log(event);
     return (
         <>
 

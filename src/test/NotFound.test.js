@@ -1,14 +1,23 @@
+import { NotFound } from "../components/NotFound";
 import {render,screen} from '@testing-library/react';
-import { NotFound } from '../components/NotFound';
 import '@testing-library/jest-dom';
 
 describe('Funcionamiento del componente NotFound', () => { 
-    test('Saber si el titulo contiene un 404', () => { 
-        render(<NotFound/>);
-         expect(screen.getByText('404')).toBeInTheDocument();
+    test('El componente recibe una prop de titulo', () => { 
+        render(<NotFound title={'Evento no encontrado'}/>)
+        const titulo = screen.getByText('Evento no encontrado');
+         expect(titulo).toBeInTheDocument();
+         expect(titulo).toHaveClass('page')
      })
-    test('Saber si recibe props', () => { 
-        render(<NotFound title={'Evento no encontrado'}/>);
-         expect(screen.getByText('Evento no encontrado')).toBeInTheDocument();
+    test('El componente tiene el texto 404', () => { 
+        render(<NotFound title={'Evento no encontrado'}/>)
+        const texto = screen.getByText('404');
+         expect(texto).toBeInTheDocument();
+         expect(texto).toHaveClass('error')
      })
+    test('El componente tiene una clase global que es not-found', () => { 
+        render(<NotFound title={'Evento no encontrado'}/>)
+        const notFoundDiv = screen.getByRole('not-found');
+        expect(notFoundDiv).toHaveClass('not-found');
+    })
  })

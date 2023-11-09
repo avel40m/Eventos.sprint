@@ -13,7 +13,7 @@ const get_filtro = createAsyncThunk('get_filtro', async() => {
     }
 })
 
-const filtro_Pasados = createAsyncThunk('get_filtro', async() => {
+const filtro_Pasados = createAsyncThunk('filtro_Pasado', async() => {
     try {
         let eventos = await axios.get('/src/data/data.json')
         .then(response => {
@@ -26,7 +26,7 @@ const filtro_Pasados = createAsyncThunk('get_filtro', async() => {
     }
 })
 
-const filtro_Futuros = createAsyncThunk('get_filtro', async() => {
+const filtro_Futuros = createAsyncThunk('filtro_futuro', async() => {
     try {
         let eventos = await axios.get('/src/data/data.json')
         .then(response => {

@@ -5,13 +5,14 @@ export const Footer = () => {
     <footer>
         <div className="contenedor">
             <div className="redes-sociales">
-                <a href="#"><i className="fa-brands fa-instagram rojo"></i></a>
-                <a href="#"><i className="fa-brands fa-whatsapp verde"></i></a>
-                <a href="#"><i className="fa-brands fa-facebook azul"></i></a>
+                <a href="#"><i className="fa-brands fa-instagram rojo" role='instagram'></i></a>
+                <a href="#"><i className="fa-brands fa-whatsapp verde" role='whatsapp'></i></a>
+                <a href="#"><i className="fa-brands fa-facebook azul" role='facebook'></i></a>
             </div>
-            <div className="autor">
+            <div role='autor' className="autor">
                 <p>Mendez Avelino</p>
             </div>
         </div>
-    </footer>  )
+    </footer>  
+    )
 }
