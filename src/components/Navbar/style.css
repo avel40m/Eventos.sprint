@@ -85,7 +85,7 @@ nav{
     display: block;
 }
 
-@media (max-width: 765px) {
+@media (max-width: 1024px) {
     nav{
         justify-content: space-between;
     }

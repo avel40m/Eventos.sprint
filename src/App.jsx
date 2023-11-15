@@ -6,6 +6,7 @@ import { Details } from './pages/Details';
 import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { Stasts } from './pages/Stasts';
+import { Login } from './pages/Login';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path='/detail/:id' element={<Details data="Detalles" />} />
         <Route path='/contact' element={<Contacts data="Contactos"/>} />
         <Route path='/stast' element={<Stasts data="Estadisticas"/>} />
+        <Route path='/login' element={<Login/>} />
         <Route path='*' element={<NotFound title={"Pagina no encontrada"}/>} />
       </Routes>
     </BrowserRouter>
