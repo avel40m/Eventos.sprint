@@ -2,8 +2,24 @@ import React from 'react';
 import './style.css';
 
 import { NotFound } from '../NotFound';
+import { useDispatch, useSelector } from 'react-redux';
+import carritoActions from '../../store/actions/carritoActions';
+import toast from 'react-hot-toast';
 
 export const Card = ({loading,event}) => {
+    const {user} = useSelector((state) => state.user);
+    const {carrito} = useSelector((state) => state.carrito);
+    const dispatch = useDispatch();
+
+    const agregarAlCarrito = () => {
+        let filtrar = carrito.filter(element => element._id === event[0]._id);
+        if (filtrar.length !== 0) {
+            toast.error("El evento esta agregado al carrito")
+        } else {
+            toast.success("Se agrego el evento al carrito");
+            dispatch(carritoActions.agregarCarrito(event));
+        }
+    }
     return (
         <>
 
@@ -38,6 +54,19 @@ export const Card = ({loading,event}) => {
                                         : <h5>Estimado: {event[0].estimate}</h5>
                                 }
                             </div>
+                            {
+                                user?.rol ? 
+                            <div className='carrito'>
+                                <button className='agregar-carrito'
+                                onClick={() => agregarAlCarrito()}
+                                >
+                                <i className="fa-solid fa-cart-shopping"></i>
+                                     Agregar al carrito
+                                </button>
+                            </div>
+                            :
+                            ""
+                            }
                         </div>
                     </section>
             }

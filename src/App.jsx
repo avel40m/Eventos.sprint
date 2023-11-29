@@ -7,6 +7,8 @@ import { Home } from './pages/Home';
 import { NotFound } from './pages/NotFound';
 import { Stasts } from './pages/Stasts';
 import { Login } from './pages/Login';
+import { Carrito } from './pages/Carrito';
+import { ProtectedUser } from './pages/ProtectedUser';
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
         <Route path='/contact' element={<Contacts data="Contactos"/>} />
         <Route path='/stast' element={<Stasts data="Estadisticas"/>} />
         <Route path='/login' element={<Login/>} />
+        <Route path='/' element={<ProtectedUser/>}>
+          <Route path='carrito' element={<Carrito/>} />
+        </Route>
         <Route path='*' element={<NotFound title={"Pagina no encontrada"}/>} />
       </Routes>
     </BrowserRouter>

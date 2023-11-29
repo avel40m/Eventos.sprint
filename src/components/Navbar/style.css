@@ -85,6 +85,12 @@ nav{
     display: block;
 }
 
+.cantidad{
+    font-size: 10px;
+  position: absolute;
+  padding-left: 2px;
+}
+
 @media (max-width: 1024px) {
     nav{
         justify-content: space-between;
@@ -128,5 +134,11 @@ nav{
     }
     .icon-abrir{
         font-size: 20px;
+    }
+    .fa-cart-shopping{
+        color: white;
+    }
+    .cantidad{
+        color: white;
     }
 }
