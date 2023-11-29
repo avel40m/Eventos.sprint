@@ -32,3 +32,18 @@
     }
   }
   
+.crear-evento{
+  position: fixed;
+  cursor: pointer;
+  top: 100px;
+  left: 2em;
+  background-color: green;
+  padding: 12px;
+  border-radius: 16px;
+  color: white;
+  transition: all .4ms ease;
+}
+
+.crear-evento:hover{
+  background-color: rgb(65, 173, 65);
+}

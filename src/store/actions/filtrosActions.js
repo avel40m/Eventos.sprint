@@ -3,9 +3,9 @@ import axios from "axios";
 
 const get_filtro = createAsyncThunk('get_filtro', async() => {
     try {
-        let eventos = await axios.get('/src/data/data.json')
+        let eventos = await axios.get('http://localhost:3000/api/events')
         .then(response => {
-            return response.data.events
+            return response.data
         })
         return eventos
     } catch (error) {
@@ -15,9 +15,9 @@ const get_filtro = createAsyncThunk('get_filtro', async() => {
 
 const filtro_Pasados = createAsyncThunk('filtro_Pasado', async() => {
     try {
-        let eventos = await axios.get('/src/data/data.json')
+        let eventos = await axios.get('http://localhost:3000/api/events')
         .then(response => {
-            const eventos = response.data.events
+            const eventos = response.data
             return eventos.filter(evento => evento.assistance != undefined)
         })
         return eventos
@@ -28,9 +28,9 @@ const filtro_Pasados = createAsyncThunk('filtro_Pasado', async() => {
 
 const filtro_Futuros = createAsyncThunk('filtro_futuro', async() => {
     try {
-        let eventos = await axios.get('/src/data/data.json')
+        let eventos = await axios.get('http://localhost:3000/api/events')
         .then(response => {
-            const eventos = response.data.events
+            const eventos = response.data
             return eventos.filter(evento => evento.estimate != undefined)
         })
         return eventos

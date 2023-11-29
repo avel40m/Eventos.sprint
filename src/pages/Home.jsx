@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { Cards } from '../components/Cards'
 import { Form } from '../components/Form'
 import { Layout } from '../layouts/Layout'
@@ -14,6 +14,7 @@ export const Home = ({ data }) => {
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const filtro = useSelector((state) => state.filtro)
+  const {user} = useSelector((state) => state.user);
 
   useEffect(() => {
     setLoading(true)
@@ -39,6 +40,15 @@ export const Home = ({ data }) => {
 
   return (
     <Layout data={data}>
+      {
+        user?.rol == "ADMIN"
+        ?
+      <Link to="/crear" className='crear-evento' title='Crear un nuevo evento'>
+      <i className="fa-solid fa-plus"></i>
+      </Link>
+      :
+      ""
+      }
       {
         loading
           ?

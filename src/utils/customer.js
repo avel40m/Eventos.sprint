@@ -8,3 +8,12 @@ export const loginRequest = async (body) => {
         return error
     }
 }
+
+export const registerRequest = async (body) => {
+    try {
+        const response = await axios.post('http://localhost:3000/api/register',body);
+        return response.data;
+    } catch (error) {
+        return error
+    }
+}

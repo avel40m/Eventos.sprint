@@ -9,6 +9,8 @@ import { Stasts } from './pages/Stasts';
 import { Login } from './pages/Login';
 import { Carrito } from './pages/Carrito';
 import { ProtectedUser } from './pages/ProtectedUser';
+import { ProtectedAdmin } from './pages/ProtectedAdmin';
+import { Crear } from './pages/Crear';
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
         <Route path='/login' element={<Login/>} />
         <Route path='/' element={<ProtectedUser/>}>
           <Route path='carrito' element={<Carrito/>} />
+        </Route>
+        <Route path='/' element={<ProtectedAdmin/>}>
+          <Route path='crear' element={<Crear />} />
         </Route>
         <Route path='*' element={<NotFound title={"Pagina no encontrada"}/>} />
       </Routes>
